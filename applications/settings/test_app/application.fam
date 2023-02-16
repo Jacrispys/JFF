@@ -1,13 +1,9 @@
 App(
-    appid="test",
+    appid="test_app",
     name="Test",
     apptype=FlipperAppType.SETTINGS,
     entry_point="test_app",
-    requires=[
-        "gui",
-        "locale",
-
-    ],
+    requires=["gui","locale"],
     stack_size=1 * 1024,
     order=90
 )
