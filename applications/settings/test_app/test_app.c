@@ -51,18 +51,19 @@ TestApp* test_app_alloc(uint32_t first_scene) {
 
 
 static void free_settings(TestApp* app) {
-    view_dispatcher_remove_view(app->view_dispatcher, 0);
+    furi_assert(app);
+
+    view_dispatcher_remove_view(app->view_dispatcher, TestAppViewVarItemList);
     variable_item_list_free(app->variable_item_list);
     view_dispatcher_free(app->view_dispatcher);
 
     furi_record_close(RECORD_GUI);
-    furi_record_close(RECORD_NOTIFICATION);
     free(app);
 }
 
 int32_t test_app(void* p) {
     UNUSED(p);
-    TestApp* app = alloc_settings();
+    TestApp* app = test_app_alloc();
     view_dispatcher_run(app->view_dispatcher);
     free_settings(app);
     return 0;
