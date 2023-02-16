@@ -10,8 +10,9 @@ const char* const test_settings_text[TEST_SETTINGS] = {
 const uint32_t test_settings_value[TEST_SETTINGS] = {1,2};
 
 static void test_settings_changed(VariableItem* item) {
+    TestApp* app = variable_item_get_context(item);
     uint8_t index = variable_item_get_current_value_index(item);
-
+    app->test_value = test_settings_value[index];
     variable_item_set_current_value_text(item, test_settings_text[index]);
 }
 
@@ -24,6 +25,7 @@ TestApp* test_app_alloc(uint32_t first_scene) {
     TestApp* app = malloc(sizeof(TestApp));
     VariableItem* item;
     uint8_t value_index;
+    float 
 
     // Records
     app -> gui = furi_record_open(RECORD_GUI);
@@ -38,12 +40,12 @@ TestApp* test_app_alloc(uint32_t first_scene) {
         app->variable_item_list, "Test Setting", TEST_SETTINGS, test_settings_changed, app
     );
     value_index = value_index_uint32(
-        locale_get_measurement_unit(), test_settings_value, TEST_SETTINGS
+        app->setting_value, test_settings_value, TEST_SETTINGS
         
     );
     variable_item_set_current_value_index(item, value_index);
     variable_item_set_current_value_text(item, test_settings_text[value_index]);
-    
+
 
     // View dispatcher
     app -> view_dispatcher = view_dispatcher_alloc();

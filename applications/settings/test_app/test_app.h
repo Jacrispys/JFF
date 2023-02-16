@@ -11,6 +11,7 @@ typedef struct {
     Gui* gui;
     ViewDispatcher* view_dispatcher;
     VariableItemList* variable_item_list;
+    float test_value;
 } TestApp;
 
 typedef enum {
