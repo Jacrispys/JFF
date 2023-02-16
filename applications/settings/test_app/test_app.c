@@ -8,7 +8,6 @@ const char* const test_settings_text[TEST_SETTINGS] = {
 };
 
 static void test_settings_changed(VariableItem* item) {
-    TestApp* app = variable_item_get_context(item);
     uint8_t index = variable_item_get_current_value_index(item);
 
     variable_item_set_current_value_text(item, test_settings_text[index]);
