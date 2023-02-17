@@ -1,6 +1,6 @@
 App(
     appid="tamagotchi_settings",
-    name="Tamagotchi Settings",
+    name="Tamagotchi",
     apptype=FlipperAppType.SETTINGS,
     entry_point="tamagotchi_settings",
     requires=["gui","locale"],
