@@ -11,7 +11,7 @@ typedef struct {
     Gui* gui;
     ViewDispatcher* view_dispatcher;
     VariableItemList* variable_item_list;
-    TamagotchiSettings* settings;
+    TamagotchiSettings settings;
 } TamagotchiSettingsApp;
 
 

@@ -24,7 +24,7 @@ TamagotchiSettingsApp* tamagotchi_settings_app_alloc() {
     TamagotchiSettingsApp* app = malloc(sizeof(TamagotchiSettingsApp));
 
     // Records
-    tamagotchi_settings_load(app->settings);
+    tamagotchi_settings_load(&app->settings);
     app->gui = furi_record_open(RECORD_GUI);
 
     app->view_dispatcher = view_dispatcher_alloc();
