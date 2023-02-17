@@ -21,7 +21,7 @@ static uint32_t test_app_exit(void* context) {
     return VIEW_NONE;
 }
 
-TestApp* test_app_alloc(uint32_t first_scene) {
+TestApp* test_app_alloc() {
     TestApp* app = malloc(sizeof(TestApp));
 
     // Records
@@ -35,7 +35,6 @@ TestApp* test_app_alloc(uint32_t first_scene) {
 
     VariableItem* item;
     uint8_t value_index;
-    float test_value;
 
     // Item List
     app->variable_item_list =  variable_item_list_alloc();
