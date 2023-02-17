@@ -6,6 +6,6 @@ App(
         "passport",
         "system_settings",
         "about",
-        "test_app"
+        "tamagotchi_settings"
     ],
 )

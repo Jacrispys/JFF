@@ -1,8 +1,8 @@
 App(
-    appid="test_app",
-    name="Test",
+    appid="tamagotchi_settings",
+    name="Tamagotchi Settings",
     apptype=FlipperAppType.SETTINGS,
-    entry_point="test_app",
+    entry_point="tamagotchi_settings",
     requires=["gui","locale"],
     stack_size=1 * 1024,
     order=90

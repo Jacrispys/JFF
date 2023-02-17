@@ -5,15 +5,15 @@
 #include <gui/view_dispatcher.h>
 #include <lib/toolbox/value_index.h>
 
-#define MAX_TEST_SETTINGS 1
+#define MAX_TAMAGOTCHI_SETTINGS 1
 
 typedef struct {
     Gui* gui;
     ViewDispatcher* view_dispatcher;
     VariableItemList* variable_item_list;
-    float test_value;
-} TestApp;
+    bool screensaver_value;
+} TamagotchiSettingsApp;
 
 typedef enum {
-    TestAppViewVarItemList,
-} TestAppView;
+    TamagotchiSettingsAppViewVarItemList,
+} TamagotchiSettingsAppView;
