@@ -76,7 +76,7 @@ static void free_settings(TamagotchiSettingsApp* app) {
     free(app);
 }
 
-int32_t tamagotchi_settings_app(void* p) {
+int32_t tamagotchi_settings(void* p) {
     UNUSED(p);
     TamagotchiSettingsApp* app = tamagotchi_settings_app_alloc();
     view_dispatcher_run(app->view_dispatcher);
