@@ -6,12 +6,12 @@ const char* const screensaver_settings_text[SCREENSAVER_SETTINGS] = {
     "Disabled",
 };
 
-const uint32_t screensaver_settings_value[SCREENSAVER_SETTINGS] = {1,2};
+const uint32_t screensaver_settings_value[SCREENSAVER_SETTINGS] = {1,0};
 
 static void screensaver_settings_changed(VariableItem* item) {
     TamagotchiSettingsApp* app = variable_item_get_context(item);
     uint8_t index = variable_item_get_current_value_index(item);
-    app->screensaver_value = screensaver_settings_value[index];
+    app->screensaver_value = (bool) screensaver_settings_value[index];
     variable_item_set_current_value_text(item, screensaver_settings_text[index]);
 }
 
