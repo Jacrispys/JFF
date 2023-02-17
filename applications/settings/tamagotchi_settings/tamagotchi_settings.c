@@ -11,7 +11,7 @@ const uint32_t screensaver_settings_value[SCREENSAVER_SETTINGS] = {1,0};
 static void screensaver_settings_changed(VariableItem* item) {
     TamagotchiSettingsApp* app = variable_item_get_context(item);
     uint8_t index = variable_item_get_current_value_index(item);
-    app->screensaver_value = screensaver_settings_value[index];
+    app->settings->screensaver_value = screensaver_settings_value[index];
     variable_item_set_current_value_text(item, screensaver_settings_text[index]);
 }
 
@@ -24,6 +24,7 @@ TamagotchiSettingsApp* tamagotchi_settings_app_alloc() {
     TamagotchiSettingsApp* app = malloc(sizeof(TamagotchiSettingsApp));
 
     // Records
+    tamagotchi_settings_load(app->settings);
     app->gui = furi_record_open(RECORD_GUI);
 
     app->view_dispatcher = view_dispatcher_alloc();
@@ -45,7 +46,7 @@ TamagotchiSettingsApp* tamagotchi_settings_app_alloc() {
         app->variable_item_list, "Screensaver", SCREENSAVER_SETTINGS, screensaver_settings_changed, app
     );
     value_index = value_index_uint32(
-        app->screensaver_value, screensaver_settings_value, SCREENSAVER_SETTINGS
+        app->settings->screensaver_value, screensaver_settings_value, SCREENSAVER_SETTINGS
         
     );
     variable_item_set_current_value_index(item, value_index);
@@ -80,6 +81,7 @@ int32_t tamagotchi_settings(void* p) {
     UNUSED(p);
     TamagotchiSettingsApp* app = tamagotchi_settings_app_alloc();
     view_dispatcher_run(app->view_dispatcher);
+    tamagotchi_settings_save(app->settings);
     free_settings(app);
     return 0;
 }
