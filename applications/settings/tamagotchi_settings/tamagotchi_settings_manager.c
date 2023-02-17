@@ -1,7 +1,7 @@
 #include "tamagotchi_settings_manager.h"
 
 #include <furi.h>
-#include <../lib/toolbox/saved_struct.h>
+#include <lib/toolbox/saved_struct.h>
 #include <storage/storage.h>
 
 #define TAMAGOTCHI_SETTINGS_PATH INT_PATH(TAMAGOTCHI_SETTINGS_FILE_NAME)
