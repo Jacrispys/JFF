@@ -1,7 +1,7 @@
 #include "tamagotchi_setttings.h"
 
 #define SCREENSAVER_SETTINGS 2
-const char* const sceensaver_settings_text[SCREENSAVER_SETTINGS] = {
+const char* const screensaver_settings_text[SCREENSAVER_SETTINGS] = {
     "Disabled",
     "Enabled",
 };
@@ -49,7 +49,7 @@ TamagotchiSettingsApp* tamagotchi_settings_app_alloc() {
         
     );
     variable_item_set_current_value_index(item, value_index);
-    variable_item_set_current_value_text(item, sceensaver_settings_text[value_index]);
+    variable_item_set_current_value_text(item, screensaver_settings_text[value_index]);
 
 
     // View dispatcher
