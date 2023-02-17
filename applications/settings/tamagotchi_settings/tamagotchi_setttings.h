@@ -10,7 +10,7 @@ typedef struct {
     Gui* gui;
     ViewDispatcher* view_dispatcher;
     VariableItemList* variable_item_list;
-    bool screensaver_value;
+    uint8_t screensaver_value;
 } TamagotchiSettingsApp;
 
 
