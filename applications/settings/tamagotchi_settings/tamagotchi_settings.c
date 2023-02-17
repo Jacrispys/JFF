@@ -2,8 +2,8 @@
 
 #define SCREENSAVER_SETTINGS 2
 const char* const screensaver_settings_text[SCREENSAVER_SETTINGS] = {
-    "Disabled",
     "Enabled",
+    "Disabled",
 };
 
 const uint32_t screensaver_settings_value[SCREENSAVER_SETTINGS] = {1,2};
@@ -42,7 +42,7 @@ TamagotchiSettingsApp* tamagotchi_settings_app_alloc() {
 
 
     item = variable_item_list_add(
-        app->variable_item_list, "Remove Screensaver", SCREENSAVER_SETTINGS, screensaver_settings_changed, app
+        app->variable_item_list, "Screensaver", SCREENSAVER_SETTINGS, screensaver_settings_changed, app
     );
     value_index = value_index_uint32(
         app->screensaver_value, screensaver_settings_value, SCREENSAVER_SETTINGS
