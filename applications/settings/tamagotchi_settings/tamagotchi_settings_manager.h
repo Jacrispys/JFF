@@ -11,6 +11,7 @@ extern "C" {
 
 typedef struct {
     uint8_t screensaver_value;
+    uint8_t passport_value;
 } TamagotchiSettings;
 
 bool tamagotchi_settings_load(TamagotchiSettings* tamagotchi_settings);

@@ -5,5 +5,5 @@ App(
     entry_point="tamagotchi_settings",
     requires=["gui","locale"],
     stack_size=1 * 1024,
-    order=90
+    order=55
 )

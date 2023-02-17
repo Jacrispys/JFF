@@ -8,11 +8,26 @@ const char* const screensaver_settings_text[SCREENSAVER_SETTINGS] = {
 
 const uint32_t screensaver_settings_value[SCREENSAVER_SETTINGS] = {0,1};
 
+#define PASSPORT_SETTINGS 2
+const char* const passport_settings_text[PASSPORT_SETTINGS] = {
+    "Enabled",
+    "Disabled",
+};
+
+const uint32_t passport_settings_value[PASSPORT_SETTINGS] = {0,1};
+
 static void screensaver_settings_changed(VariableItem* item) {
     TamagotchiSettingsApp* app = variable_item_get_context(item);
     uint8_t index = variable_item_get_current_value_index(item);
     app->settings.screensaver_value = screensaver_settings_value[index];
     variable_item_set_current_value_text(item, screensaver_settings_text[app->settings.screensaver_value]);
+}
+
+static void passport_settings_changed(VariableItem* item) {
+    TamagotchiSettingsApp * app = variable_item_get_context(item);
+    uint8_t index = variable_item_get_current_value_index(item);
+    app->settings.passport_value = passport_settings_value[index];
+    variable_item_set_current_value_text(item, passport_settings_text[app->settings.passport_value]);
 }
 
 static uint32_t tamagotchi_settings_app_exit(void* context) {
@@ -49,6 +64,15 @@ TamagotchiSettingsApp* tamagotchi_settings_app_alloc() {
         app->settings.screensaver_value, screensaver_settings_value, SCREENSAVER_SETTINGS
         
     );
+    variable_item_set_current_value_index(item, value_index);
+    variable_item_set_current_value_text(item, screensaver_settings_text[value_index]);
+
+    item = variable_item_list_add(
+        app->variable_item_list, "Passport", PASSPORT_SETTINGS, passport_settings_changed, app
+        );
+    value_index = value_index_uint32(
+        app->settings.passport_value, passport_settings_value, PASSPORT_SETTINGS
+        );
     variable_item_set_current_value_index(item, value_index);
     variable_item_set_current_value_text(item, screensaver_settings_text[value_index]);
 
