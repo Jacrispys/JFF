@@ -23,12 +23,19 @@ static uint32_t test_app_exit(void* context) {
 
 TestApp* test_app_alloc(uint32_t first_scene) {
     TestApp* app = malloc(sizeof(TestApp));
-    VariableItem* item;
-    uint8_t value_index;
-    float 
 
     // Records
-    app -> gui = furi_record_open(RECORD_GUI);
+    app->gui = furi_record_open(RECORD_GUI);
+
+    app->view_dispatcher = view_dispatcher_alloc();
+    view_dispatcher_enable_queue(app->view_dispatcher);
+    view_dispatcher_set_event_callback_context(app->view_dispatcher, app);
+    
+    view_dispatcher_attach_to_gui(app->view_dispatcher, app->gui, ViewDispatcherTypeFullscreen);
+
+    VariableItem* item;
+    uint8_t value_index;
+    float test_value;
 
     // Item List
     app->variable_item_list =  variable_item_list_alloc();
@@ -40,7 +47,7 @@ TestApp* test_app_alloc(uint32_t first_scene) {
         app->variable_item_list, "Test Setting", TEST_SETTINGS, test_settings_changed, app
     );
     value_index = value_index_uint32(
-        app->setting_value, test_settings_value, TEST_SETTINGS
+        app->test_value, test_settings_value, TEST_SETTINGS
         
     );
     variable_item_set_current_value_index(item, value_index);
@@ -48,10 +55,10 @@ TestApp* test_app_alloc(uint32_t first_scene) {
 
 
     // View dispatcher
-    app -> view_dispatcher = view_dispatcher_alloc();
-    view_dispatcher_enable_queue(app->view_dispatcher);
-    view_dispatcher_attach_to_gui(app->view_dispatcher, app->gui, ViewDispatcherTypeFullscreen);
-    view_dispatcher_add_view(app->view_dispatcher, 0, view);
+    view_set_previous_callback(
+        variable_item_list_get_view(app->variable_item_list), test_app_exit
+    );
+    view_dispatcher_add_view(app->view_dispatcher, TestAppViewVarItemList, variable_item_list_get_view(app->variable_item_list));
     view_dispatcher_switch_to_view(app->view_dispatcher, 0);
 
     return app;
