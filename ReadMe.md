@@ -54,7 +54,7 @@ Our Discord Community:
 Also check the changelog in releases for latest updates!
 
 ### Current modified and new Sub-GHz protocols list:
-Thanks to Official team (to thier SubGHz Developer, Skorp) for implementing decoders for these protocols.
+Thanks to Official team (to their SubGHz Developer, Skorp) for implementing decoders for these protocols.
 
 Encoders/sending made by Eng1n33r & @xMasterX:
 
@@ -139,6 +139,7 @@ You can support us by using links or addresses below:
 - Text Viewer [(by kowalski7cc & kyhwana)](https://github.com/kowalski7cc/flipper-zero-text-viewer/tree/refactor-text-app)
 - **UART Terminal** [(by cool4uma)](https://github.com/cool4uma/UART_Terminal/tree/main)
 - **ProtoView** [(by antirez)](https://github.com/antirez/protoview)
+- **SWD Probe** [(by g3gg0)](https://github.com/g3gg0/flipper-swd_probe)
 
 Games:
 - DOOM (fixed) [(by p4nic4ttack)](https://github.com/p4nic4ttack/doom-flipper-zero/)
