@@ -1,21 +1,29 @@
 ### New changes
-* Desktop: Autolock with PIN Code (by @Willy-JL | PR #338) - **Desktop settings (pin code, favourite app, autolock time) will be resetted!!! Only one time after installing - due to changes in settings structure, after installing of this release desktop settings will not be reset with next release**
-* Desktop: Faster back button hold time for power off, was 2 seconds, now 1.3sec
-* GUI: Fix keyboard capitalization bug (by @Willy-JL | PR #362) (fixes #361)
-* Plugins: Added **SWD Probe** [(by g3gg0)](https://github.com/g3gg0/flipper-swd_probe) (moved from extra pack into main FW)
-* Plugins: Show RSSI in Weather Station app and in POCSAG Pager app
-* Plugins: Improve Tetris fall speed algorithm (by @p3ngu19z | PR #343)
-* Plugins: Add missing buttons into HID app, remove old keyboard app, move Bluetooth remote to Misc
-* Infrared: Assets update (by @amec0e | PR #340 / #357 / #358)
-* Misc: Typo combing (by @Round-Pi | PR #352)
-* OFW: Dolphin: drop holiday animation
-* OFW: fbt: FBT_QUIET option; docs on environment
-* OFW: Delete rwfiletest.bin on exit SDcard benchmark
-* OFW: Re-init NFC when starting the worker 
-* OFW: Up toolchain version to 21
-* OFW: Display Mifare Classic data in NFC app
+* If you have copied apps into `apps` folder - remove `apps` folder on your microSD before installing this release to avoid issues!
+* SubGHz: Fixed timings for static CAME 12 bit and other types (fixed issue #280)
+* SubGHz: Fix #370 and fix other protocol counter issues
+* SubGHz: **Custom buttons for Nice Flor S / Somfy Telis (+Programming mode)** - now you can use arrow buttons to send signal with different button code
+* SubGHz: Somfy Telis -> Add manually (create new remote, now with programming button (Prog / 0x8) you can write it into receiver)
+* SubGHz: BFT Mitto -> Add manually (create new remote, now with programming button (0xF) you can write it into receiver)
+* SubGHz: Nice One -> Add manually (programming is possible using regular button)
+* SubGHz: More precise settings for debug counter increase value
+* Plugins -> MouseJacker: Features, Fixes and improvements (by @MatthisC | PR #366)
+* Plugins -> HC-SR04: Improve accuracy by measuring microseconds (by @clashlab | PR #367)
+* OFW PR: 2441 - Infrared: Fix hangups on repeated button press (by gsurkov)
+* OFW PR: 2440 - Fix navigation on unsupported card types (by Astrrra)
+* OFW: BadUSB UI fixes
+* OFW: Plugins: move to designated categories -> **We moved some plugins to new categories too**
+* OFW: Drivers: remove excessive check in bq25896 and make PVS happy
+* OFW: FuriHal, Power, UnitTests: fix, rename battery charging voltage limit API -> **Breaking API change, api was changed from 14.x to 15.x** 
+**(this will make your manually copied plugins not work, update them in same way you installed them, or delete `apps` folder and then install firmware, if you using extra pack builds (with `e` in version) all apps in _Extra will be updated automatically)**
 
-#### [🎲 Download latest extra apps pack](https://download-directory.github.io/?url=https://github.com/xMasterX/unleashed-extra-pack/tree/main/apps)
+* OFW: Fix incorrect type choise condition in image compressor
+* OFW: Updater: handle storage errors when removing files, fix folder remove routine, prevent unused services from starting
+* OFW: Unify power info, power debug, and device_info into one info command
+* OFW: SD Cache: moved to diskio layer, invalidation in case of error
+* OFW: Picopass: factory key support, minor code cleanup
+
+#### [🎲 Download latest extra apps pack](https://github.com/xMasterX/unleashed-extra-pack/archive/refs/heads/main.zip)
 
 [-> How to install firmware](https://github.com/DarkFlippers/unleashed-firmware/blob/dev/documentation/HowToInstall.md)
 
