@@ -421,7 +421,7 @@ static StorageAnimation*
             }
         }
     if (tamagotchiSettings->screensaver_value == 1) {
-        selected = animation_storage_find_animation("L1_Blank_NaN");
+        selected = animation_storage_find_animation("L1_Blank_128x64");
     }
 
     StorageAnimationList_clear(animation_list);

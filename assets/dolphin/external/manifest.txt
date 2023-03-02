@@ -1,12 +1,12 @@
 Filetype: Flipper Animation Manifest
 Version: 1
 
-Name: L1_Blank_NaN
+Name: L1_Blank_128x64
 Min butthurt: 0
 Max butthurt: 5
 Min level: 1
 Max level: 3
-Weight: 0
+Weight: 3
 
 Name: L1_Waves_128x50
 Min butthurt: 0
