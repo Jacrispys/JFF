@@ -422,6 +422,7 @@ static StorageAnimation*
         }
     if (tamagotchiSettings->screensaver_value == 1) {
         selected = animation_storage_find_animation("L1_Blank_128x64");
+        weight += animation_storage_get_meta(selected)->weight;
     }
 
     StorageAnimationList_clear(animation_list);
