@@ -13,6 +13,7 @@
 #include "animation_storage.h"
 #include "animation_manager.h"
 #include "../../../settings/tamagotchi_settings/tamagotchi_setttings.h"
+#include "../../../settings/tamagotchi_settings/tamagotchi_setttings_manager.h"
 
 #define TAG "AnimationManager"
 
@@ -403,6 +404,7 @@ static StorageAnimation*
 
     StorageAnimation* selected = NULL;
     TamagotchiSettings* tamagotchiSettings = malloc(sizeof(TamagotchiSettings));
+    tamagotchi_settings_load(tamagotchiSettings);
     if (tamagotchiSettings->screensaver_value == 0) {
 for
     M_EACH(item, animation_list, StorageAnimationList_t) {
