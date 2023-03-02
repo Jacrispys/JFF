@@ -422,7 +422,7 @@ static StorageAnimation*
                 }
             }
     } else {
-        selected = animation_storage_find_animation("L1_Boxing_128x64");
+        selected = animation_storage_find_animation("L1_Blank_128x64");
     }
 
     StorageAnimationList_clear(animation_list);
