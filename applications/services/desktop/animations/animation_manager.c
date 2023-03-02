@@ -12,6 +12,7 @@
 #include "views/one_shot_animation_view.h"
 #include "animation_storage.h"
 #include "animation_manager.h"
+#include "tamagotchi_setttings.h"
 
 #define TAG "AnimationManager"
 
@@ -401,21 +402,26 @@ static StorageAnimation*
     uint32_t weight = 0;
 
     StorageAnimation* selected = NULL;
-    for
-        M_EACH(item, animation_list, StorageAnimationList_t) {
-            if(lucky_number < weight) {
-                break;
-            }
-            weight += animation_storage_get_meta(*item)->weight;
-            selected = *item;
+    TamagotchiSettings* tamagotchiSettings = malloc(sizeof(TamagotchiSettings));
+    if (tamagotchiSettings->screensaver_value == 0) {
+for
+    M_EACH(item, animation_list, StorageAnimationList_t) {
+        if(lucky_number < weight) {
+            break;
         }
+        weight += animation_storage_get_meta(*item)->weight;
+        selected = *item;
+    }
 
-    for
-        M_EACH(item, animation_list, StorageAnimationList_t) {
-            if(*item != selected) {
-                animation_storage_free_storage_animation(item);
-            }
+for
+    M_EACH(item, animation_list, StorageAnimationList_t) {
+        if(*item != selected) {
+            animation_storage_free_storage_animation(item);
         }
+    }
+    } else {
+        selected = animation_storage_find_animation("L1_Blank_NaN");
+    }
 
     StorageAnimationList_clear(animation_list);
 
