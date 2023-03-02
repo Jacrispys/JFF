@@ -12,7 +12,7 @@
 #include "views/one_shot_animation_view.h"
 #include "animation_storage.h"
 #include "animation_manager.h"
-#include "../../settings/tamagotchi_settings/tamagotchi_setttings.h"
+#include "settings/tamagotchi_settings/tamagotchi_setttings.h"
 
 #define TAG "AnimationManager"
 
