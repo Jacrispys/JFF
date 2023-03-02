@@ -5,6 +5,7 @@
 #include <portmacro.h>
 #include <dolphin/dolphin.h>
 #include <power/power_service/power.h>
+#include "settings/tamagotchi_settings/tamagotchi_setttings_manager.h"
 #include <storage/storage.h>
 #include <assets_icons.h>
 
@@ -12,7 +13,6 @@
 #include "views/one_shot_animation_view.h"
 #include "animation_storage.h"
 #include "animation_manager.h"
-#include "settings/tamagotchi_settings/tamagotchi_setttings.h"
 
 #define TAG "AnimationManager"
 
