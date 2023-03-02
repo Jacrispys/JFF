@@ -405,24 +405,24 @@ static StorageAnimation*
     StorageAnimation* selected = NULL;
     TamagotchiSettings* tamagotchiSettings = malloc(sizeof(TamagotchiSettings));
     tamagotchi_settings_load(tamagotchiSettings);
-    for
-        M_EACH(item, animation_list, StorageAnimationList_t) {
-            if(lucky_number < weight) {
-                break;
+    if(tamagotchiSettings->screensaver_value == 0) {
+        for
+            M_EACH(item, animation_list, StorageAnimationList_t) {
+                if(lucky_number < weight) {
+                    break;
+                }
+                weight += animation_storage_get_meta(*item)->weight;
+                selected = *item;
             }
-            weight += animation_storage_get_meta(*item)->weight;
-            selected = *item;
-        }
 
-    for
-        M_EACH(item, animation_list, StorageAnimationList_t) {
-            if(*item != selected) {
-                animation_storage_free_storage_animation(item);
+        for
+            M_EACH(item, animation_list, StorageAnimationList_t) {
+                if(*item != selected) {
+                    animation_storage_free_storage_animation(item);
+                }
             }
-        }
-    if (tamagotchiSettings->screensaver_value == 1) {
-        selected = animation_storage_find_animation("L1_Blank_128x64");
-        weight += animation_storage_get_meta(selected)->weight;
+    } else {
+        selected = animation_storage_find_animation("L1_Boxing_128x64");
     }
 
     StorageAnimationList_clear(animation_list);
