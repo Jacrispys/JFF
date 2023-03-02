@@ -13,7 +13,7 @@
 #include "animation_storage.h"
 #include "animation_manager.h"
 #include "../../../settings/tamagotchi_settings/tamagotchi_setttings.h"
-#include "../../../settings/tamagotchi_settings/tamagotchi_setttings_manager.h"
+#include "../../../settings/tamagotchi_settings/tamagotchi_settings_manager.h"
 
 #define TAG "AnimationManager"
 
